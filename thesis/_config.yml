@@ -8,4 +8,11 @@
 title                       : thesis  # The title of the book. Will be placed in the left navbar.
 author                      : A S Sahasranamam  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+logo                        : AS.png  # A path to the book logo
+
+
+repository:
+  url: https://github.com/assahasranamam/thesis
+  branch: primary  # An optional branch, defaults to `master`
+html:
+  use_edit_page_button: true
