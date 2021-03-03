@@ -14,9 +14,3 @@ logo                        : AS.png  # A path to the book logo
 repository:
   url: https://github.com/assahasranamam/thesis
   branch: primary  # An optional branch, defaults to `master`
-html:
-  use_edit_page_button: true
-
-
-sphinx:
-  config:
