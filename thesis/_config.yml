@@ -16,3 +16,8 @@ repository:
   branch: primary  # An optional branch, defaults to `master`
 html:
   use_edit_page_button: true
+
+
+sphinx:
+  config:
+    html_theme : 'sphinx_material'
