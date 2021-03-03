@@ -20,4 +20,3 @@ html:
 
 sphinx:
   config:
-    html_theme : 'sphinx_material'
