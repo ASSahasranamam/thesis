@@ -95,6 +95,20 @@ procData["diff_totalVar"] = (np.array(
     data_treatment["totalVar"]) - np.array(data_control["totalVar"])).tolist()
 
 
+newDF=  data_control[["testGroup","tg2"]]
+newDF
+
+
+newDF.rename(columns = {'testGroup':'c_tg','tg2':'c_tg2'},  inplace=True) 
+newDF
+
+
+newDF.index = procData.index
+procData= pd.concat([procData,newDF], axis=1)
+
+
+
+
 #### Difference Table
 
 
@@ -183,8 +197,6 @@ a = 0.05
 wilcoxon(data_control["AWT2"],data_treatment["AWT2"])
 
 
-
-
 ggplot(data, aes(x='treatment', y='CWT2') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
 
 
@@ -215,9 +227,6 @@ ggplot(data, aes(x='treatment', y='total2') ) + geom_boxplot() + geom_jitter(dat
 a = 0.05
 
 wilcoxon(diff_data["diff_total2"])
-
-
-ggplot(data, aes(x='treatment', y='totalVar') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
 
 
 ggplot(diff_data, aes(x=0,y='diff_total2') ) + geom_boxplot() + geom_jitter(diff_data)
@@ -252,6 +261,9 @@ shapiro_test
 shapiro_test = shapiro(diff_data['diff_total2'])
 shapiro_test
 
+ggplot(data, aes(x='treatment', y='totalVar') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
+
+
 a = 0.05
 
 wilcoxon(diff_data["diff_totalVar"])
@@ -268,7 +280,17 @@ wilcoxon(diff_data["diff_totalWT"])
 ggplot(data, aes(x='treatment', y='totalA') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
 
 
+a = 0.05
+
+wilcoxon(diff_data["diff_totalA"])
+
+
 ggplot(data, aes(x='treatment', y='totalC') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
+
+
+a = 0.05
+
+wilcoxon(diff_data["diff_totalC"])
 
 
 
@@ -303,17 +325,33 @@ Friedman Tes
 
 a = 0.05
 
-w, p = wilcoxon(data_control["AWT2"],data_treatment["AWT2"])
+w, p = wilcoxon((data_control["totalA"]/data_control["totalC"] ),(data_treatment["totalA"]/data_treatment["totalC"]))
 print(w, p)
 
 a = 0.05
 
-w, p = wilcoxon(data_control["CVAR2"],data_treatment["CVAR2"])
+w, p = wilcoxon((data_control["AVAR2"]/data_control["CVAR2"] ),(data_treatment["AVAR2"]/data_treatment["CVAR2"]))
 print(w, p)
 
 a = 0.05
 
-w, p = wilcoxon(data_control["AWT2"],data_treatment["CWT2"])
+w, p = wilcoxon((data_control["AWT2"]/data_control["CWT2"] ),(data_treatment["AWT2"]/data_treatment["CWT2"]))
+print(w, p)
+
+ggplot()+geom_histogram(procData,aes(x="tg2"))
+
+ggplot()+geom_histogram(procData,aes(x="mutant"))
+
+ggplot()+geom_bar(procData,aes(x="spliceVariant",fill="mutant"))
+
+ggplot()+geom_col(procData,aes(x="spliceVariant",y="diff_totalA/diff_totalC",fill="mutant"))
+
+a = 0.05
+diff_data = procData[(data["totalC"] > 0 ) & (data["totalA"] > 0 )]
+ggplot()+geom_histogram(diff_data,aes(x="tg2"))
+
+
+w, p = wilcoxon((diff_data["totalC"] )/(diff_data["totalA"]))
 print(w, p)
 
 a = 0.05

@@ -5,10 +5,10 @@
 
 #######################################################################################
 # Book settings
-title                       : thesis  # The title of the book. Will be placed in the left navbar.
+title                       : Thesis  # The title of the book. Will be placed in the left navbar.
 author                      : A S Sahasranamam  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : AS.png  # A path to the book logo
+logo                        : logo2.png  # A path to the book logo
 
 
 repository:
