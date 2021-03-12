@@ -1,5 +1,5 @@
 
-#  QQ plots for Treatmnent
+#  Statistics & Data Analysis
 
 
 ##  Req
