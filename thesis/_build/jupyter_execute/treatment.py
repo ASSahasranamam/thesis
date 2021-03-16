@@ -54,10 +54,8 @@ import pandas as pd
 import scipy
 import matplotlib.pyplot as plt
 from pandas.api.types import CategoricalDtype
-
+from plotnine import *
 from scipy.stats import *
-import scikit_posthocs as sp
-from pingouin import friedman
 
 
 
@@ -186,11 +184,12 @@ scipy.stats.skew(LPS_summary)
 scipy.stats.kurtosis(LPS_summary)
 
 
+
+
 ## Graph Data - 
 
 from plotnine import *
 ggplot(data, aes(x='treatment', y='AWT2') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
-
 
 a = 0.05
 
@@ -221,17 +220,18 @@ a = 0.05
 wilcoxon(data_control["CVAR2"],data_treatment["CVAR2"])
 
 
-ggplot(data, aes(x='treatment', y='total2') ) + geom_boxplot() + geom_jitter(data,aes(colour='treatment',shape='treatment'))
-
+removed_outliers = data.total2.between(data.total2.quantile(.05), data.total2.quantile(.95))
+data_total= data[removed_outliers]
+ggplot(data_total, aes(x='treatment',y="total2" ), ) + geom_boxplot(outlier_shape = "") + geom_jitter(data_total,aes(y="total2",colour='treatment',shape='treatment') )  + ggtitle("QQ Plot of IRAK-1 expression per  GbP") + xlab("Treatment") + ylab("Total IRAK-1 Levels per Gigabase pair") + ylim(data_total.total2.quantile(.05), data_total.total2.quantile(.95))
 
 a = 0.05
 
 wilcoxon(diff_data["diff_total2"])
 
 
-ggplot(diff_data, aes(x=0,y='diff_total2') ) + geom_boxplot() + geom_jitter(diff_data)
-
-
+removed_outliers_diffData = diff_data.diff_total2.between(diff_data.diff_total2.quantile(.05), diff_data.diff_total2.quantile(.95))
+difftotalData=diff_data[removed_outliers_diffData]
+ggplot(difftotalData, aes( x='0',y='diff_total2') ) + geom_boxplot() + geom_point(color="red") + ylim(difftotalData.diff_total2.quantile(.05), difftotalData.diff_total2.quantile(.95)) + ggtitle("QQ Plot of changes in IRAK-1 levels per Gbp") + xlab("Treatment") + ylab("Changes in  IRAK-1 Levels per Gigabase pair") 
 
 
 data_plot = data_treatment
@@ -242,6 +242,13 @@ data_plot["ctrl_total2"]=controlData.to_list()
 data_plot
 
 
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression().fit(data_plot.total2.to_numpy().reshape((-1, 1)), data_plot.ctrl_total2)
+r_sq= model.score(data_plot.total2.to_numpy().reshape((-1, 1)), data_plot.ctrl_total2)
+print('coefficient of determination:', r_sq)
+print('intercept:', model.intercept_)
+print('slope:', model.coef_)
 
 
 ggplot(data_plot,aes(x='total2',y='ctrl_total2') )  + geom_point() + geom_smooth(method='lm')
@@ -375,3 +382,7 @@ correlation plot for each patient - total 2 & diff_total2
 Look for A/C ratios 
 
 ggplot(data_plot,aes(x='total2',y='ctrl_total2') )  + geom_point(colour) + geom_smooth(method='lm')
+
+
+
+

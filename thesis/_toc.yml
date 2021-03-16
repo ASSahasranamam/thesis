@@ -2,5 +2,5 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: intro
   sections:
-    - file: treatment
     - file: notebooks
+    - file: treatment

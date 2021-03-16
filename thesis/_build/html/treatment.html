@@ -54,8 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="Introducttion" href="intro.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -93,14 +92,14 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Statistics &amp; Data Analysis
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
    Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Statistics &amp; Data Analysis
   </a>
  </li>
 </ul>
@@ -162,23 +161,6 @@
                         class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/assahasranamam/thesis/primary?urlpath=tree/treatment.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
@@ -391,29 +373,13 @@
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
-
+<span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">scikit_posthocs</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">from</span> <span class="nn">pingouin</span> <span class="kn">import</span> <span class="n">friedman</span>
 
 
 
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./NewCols.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">48</span><span class="n">d7220d73c0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
@@ -450,6 +416,55 @@
     <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalVar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-981ec0c95d0b&gt;:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:10: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:12: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:16: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:18: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:20: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:22: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-3-981ec0c95d0b&gt;:24: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 </pre></div>
 </div>
 </div>
@@ -572,6 +587,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/pandas/core/frame.py:4441: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -900,14 +921,14 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10.264406796877633,
- 9.444362749191733,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10.264406796877637,
+ 9.444362749191729,
  3.6982075152203597,
  9.543320897371544,
  7.61247279274705,
  6.469933856117286,
  5.523875299227822,
- 2.8732422672008147,
+ 2.873242267200818,
  10.564445597026406]
 </pre></div>
 </div>
@@ -1305,8 +1326,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_42_0.png" src="_images/treatment_42_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795019349378)&gt;
+<img alt="_images/treatment_43_0.png" src="_images/treatment_43_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329656435)&gt;
 </pre></div>
 </div>
 </div>
@@ -1320,6 +1341,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=1.0, pvalue=0.0069104298078147995)
 </pre></div>
 </div>
@@ -1332,8 +1356,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_44_0.png" src="_images/treatment_44_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795017669895)&gt;
+<img alt="_images/treatment_45_0.png" src="_images/treatment_45_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329628272)&gt;
 </pre></div>
 </div>
 </div>
@@ -1347,6 +1371,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=19.0, pvalue=0.6729404357300602)
 </pre></div>
 </div>
@@ -1359,8 +1387,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_46_0.png" src="_images/treatment_46_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795022547694)&gt;
+<img alt="_images/treatment_47_0.png" src="_images/treatment_47_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329774761)&gt;
 </pre></div>
 </div>
 </div>
@@ -1374,6 +1402,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=7.0, pvalue=0.23672357063785732)
 </pre></div>
 </div>
@@ -1386,8 +1418,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_48_0.png" src="_images/treatment_48_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795022742140)&gt;
+<img alt="_images/treatment_49_0.png" src="_images/treatment_49_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329808348)&gt;
 </pre></div>
 </div>
 </div>
@@ -1401,6 +1433,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=10.0, pvalue=0.26144605232963014)
 </pre></div>
 </div>
@@ -1408,13 +1444,21 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">removed_outliers</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
+<span class="n">data_total</span><span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">removed_outliers</span><span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">data_total</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;total2&quot;</span> <span class="p">),</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">outlier_shape</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data_total</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;total2&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">)</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;QQ Plot of IRAK-1 expression per  GbP&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">&quot;Treatment&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Total IRAK-1 Levels per Gigabase pair&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylim</span><span class="p">(</span><span class="n">data_total</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">data_total</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_50_0.png" src="_images/treatment_50_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795022951870)&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/plotnine/layer.py:372: PlotnineWarning: stat_boxplot : Removed 4 rows containing non-finite values.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_jitter : Removed 5 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/treatment_51_2.png" src="_images/treatment_51_2.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329656420)&gt;
 </pre></div>
 </div>
 </div>
@@ -1435,13 +1479,19 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">diff_data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;diff_total2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">diff_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">removed_outliers_diffData</span> <span class="o">=</span> <span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
+<span class="n">difftotalData</span><span class="o">=</span><span class="n">diff_data</span><span class="p">[</span><span class="n">removed_outliers_diffData</span><span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">difftotalData</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;diff_total2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylim</span><span class="p">(</span><span class="n">difftotalData</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">difftotalData</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span> <span class="o">+</span> <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;QQ Plot of changes in IRAK-1 levels per Gbp&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">&quot;Treatment&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Changes in  IRAK-1 Levels per Gigabase pair&quot;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_52_0.png" src="_images/treatment_52_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795016360855)&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/plotnine/layer.py:372: PlotnineWarning: stat_boxplot : Removed 2 rows containing non-finite values.
+/Users/adithyasahasranamam/Library/Python/3.8/lib/python/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_point : Removed 2 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/treatment_53_1.png" src="_images/treatment_53_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (329806969)&gt;
 </pre></div>
 </div>
 </div>
@@ -1483,6 +1533,13 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-36-e65ed6e0bbb2&gt;:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1892,13 +1949,39 @@ Name: total2, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="n">r_sq</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefficient of determination:&#39;</span><span class="p">,</span> <span class="n">r_sq</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slope:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">37</span><span class="o">-</span><span class="mi">842</span><span class="n">a911f4396</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">r_sq</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefficient of determination:&#39;</span><span class="p">,</span> <span class="n">r_sq</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data_plot</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total2&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;ctrl_total2&#39;</span><span class="p">)</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lm&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_56_0.png" src="_images/treatment_56_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023282646)&gt;
+<img alt="_images/treatment_57_0.png" src="_images/treatment_57_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (321619466)&gt;
 </pre></div>
 </div>
 </div>
@@ -1957,8 +2040,8 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_61_0.png" src="_images/treatment_61_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023340752)&gt;
+<img alt="_images/treatment_62_0.png" src="_images/treatment_62_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (321550511)&gt;
 </pre></div>
 </div>
 </div>
@@ -1972,6 +2055,10 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=10.0, pvalue=0.2626182904425206)
 </pre></div>
 </div>
@@ -1984,8 +2071,8 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_63_0.png" src="_images/treatment_63_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795022955505)&gt;
+<img alt="_images/treatment_64_0.png" src="_images/treatment_64_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (321673376)&gt;
 </pre></div>
 </div>
 </div>
@@ -1999,6 +2086,9 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=1.0, pvalue=0.0069104298078147995)
 </pre></div>
 </div>
@@ -2011,8 +2101,8 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_65_0.png" src="_images/treatment_65_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023388546)&gt;
+<img alt="_images/treatment_66_0.png" src="_images/treatment_66_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (321639955)&gt;
 </pre></div>
 </div>
 </div>
@@ -2038,8 +2128,8 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_67_0.png" src="_images/treatment_67_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023092938)&gt;
+<img alt="_images/treatment_68_0.png" src="_images/treatment_68_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (321645228)&gt;
 </pre></div>
 </div>
 </div>
@@ -2053,6 +2143,9 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=40.0, pvalue=0.7000053872020358)
 </pre></div>
 </div>
@@ -2111,147 +2204,15 @@ we reject the Null Hypothesis.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">53</span><span class="o">-</span><span class="mi">002</span><span class="n">a63aa1796</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sp</span><span class="o">.</span><span class="n">posthoc_nemenyi_friedman</span><span class="p">(</span><span class="n">diff_data</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>diff_AVAR2</th>
-      <th>diff_CVAR2</th>
-      <th>diff_AWT2</th>
-      <th>diff_CWT2</th>
-      <th>diff_total2</th>
-      <th>diff_totalA</th>
-      <th>diff_totalC</th>
-      <th>diff_totalWT</th>
-      <th>diff_totalVar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>diff_AVAR2</th>
-      <td>1.000000</td>
-      <td>0.900000</td>
-      <td>0.719090</td>
-      <td>0.900000</td>
-      <td>0.385873</td>
-      <td>0.321768</td>
-      <td>0.900000</td>
-      <td>0.759541</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_CVAR2</th>
-      <td>0.900000</td>
-      <td>1.000000</td>
-      <td>0.597725</td>
-      <td>0.900000</td>
-      <td>0.516816</td>
-      <td>0.215913</td>
-      <td>0.900000</td>
-      <td>0.638181</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_AWT2</th>
-      <td>0.719090</td>
-      <td>0.597725</td>
-      <td>1.000000</td>
-      <td>0.363819</td>
-      <td>0.002710</td>
-      <td>0.900000</td>
-      <td>0.557270</td>
-      <td>0.900000</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_CWT2</th>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>0.363819</td>
-      <td>1.000000</td>
-      <td>0.739314</td>
-      <td>0.088304</td>
-      <td>0.900000</td>
-      <td>0.408266</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_total2</th>
-      <td>0.385873</td>
-      <td>0.516816</td>
-      <td>0.002710</td>
-      <td>0.739314</td>
-      <td>1.000000</td>
-      <td>0.001000</td>
-      <td>0.557270</td>
-      <td>0.003528</td>
-      <td>0.215913</td>
-    </tr>
-    <tr>
-      <th>diff_totalA</th>
-      <td>0.321768</td>
-      <td>0.215913</td>
-      <td>0.900000</td>
-      <td>0.088304</td>
-      <td>0.001000</td>
-      <td>1.000000</td>
-      <td>0.186146</td>
-      <td>0.900000</td>
-      <td>0.516816</td>
-    </tr>
-    <tr>
-      <th>diff_totalC</th>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>0.557270</td>
-      <td>0.900000</td>
-      <td>0.557270</td>
-      <td>0.186146</td>
-      <td>1.000000</td>
-      <td>0.597725</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_totalWT</th>
-      <td>0.759541</td>
-      <td>0.638181</td>
-      <td>0.900000</td>
-      <td>0.408266</td>
-      <td>0.003528</td>
-      <td>0.900000</td>
-      <td>0.597725</td>
-      <td>1.000000</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>diff_totalVar</th>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>0.215913</td>
-      <td>0.516816</td>
-      <td>0.900000</td>
-      <td>0.900000</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Friedman Tes</p>
 </div>
@@ -2267,11 +2228,6 @@ we reject the Null Hypothesis.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48.0 0.52447509765625
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2279,11 +2235,6 @@ we reject the Null Hypothesis.
 
 <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">]</span> <span class="p">),(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0 0.00335693359375
 </pre></div>
 </div>
 </div>
@@ -2297,21 +2248,10 @@ we reject the Null Hypothesis.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.0 0.05535888671875
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tg2&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/treatment_82_0.png" src="_images/treatment_82_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023392229)&gt;
 </pre></div>
 </div>
 </div>
@@ -2322,12 +2262,6 @@ we reject the Null Hypothesis.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/treatment_83_0.png" src="_images/treatment_83_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023926718)&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2335,22 +2269,10 @@ we reject the Null Hypothesis.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/treatment_84_0.png" src="_images/treatment_84_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023299181)&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_col</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;spliceVariant&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;diff_totalA/diff_totalC&quot;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;mutant&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/treatment_85_0.png" src="_images/treatment_85_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795022527260)&gt;
 </pre></div>
 </div>
 </div>
@@ -2363,22 +2285,11 @@ we reject the Null Hypothesis.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/treatment_86_0.png" src="_images/treatment_86_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8795023597153)&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 0.0009765625
 </pre></div>
 </div>
 </div>
@@ -2389,11 +2300,6 @@ we reject the Null Hypothesis.
 
 <span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.0 0.00537109375
 </pre></div>
 </div>
 </div>
@@ -2438,8 +2344,7 @@ we reject the Null Hypothesis.
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introducttion</a>
-    <a class='right-next' id="next-link" href="notebooks.html" title="next page">Content with notebooks</a>
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">Content with notebooks</a>
 
         </div>
         
