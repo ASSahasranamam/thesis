@@ -1,0 +1,7 @@
+```{r <chunk-label>, echo = FALSE}
+print("hello")
+```
+
+\ ```{r}
+print ayy```
+
