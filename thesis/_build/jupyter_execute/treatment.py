@@ -8,8 +8,6 @@
 
 ##### HTML formatting
 
-
-
 from IPython.display import HTML
 
 HTML("""<style type="text/css">
@@ -66,7 +64,10 @@ data = pd.read_csv("./NewCols.csv")
 ## Calculating the differences between the noremalized values. 
 
 data_control = data[data["treatment"] == "baseline"]
+data_control.to_csv("./control.csv")
 data_treatment = data[data["treatment"] == "intravenous LPS"]
+data_control.to_csv("./lps.csv")
+
 procData = data_treatment
 
 
@@ -91,6 +92,7 @@ procData["diff_totalWT"] = (np.array(
 procData["diff_totalVar"] = (np.array(
     data_treatment["totalVar"]) - np.array(data_control["totalVar"])).tolist()
 
+procData.to_csv("./procData.csv")
 
 newDF=  data_control[["testGroup","tg2"]]
 newDF
@@ -113,7 +115,7 @@ procData= pd.concat([procData,newDF], axis=1)
 pd.set_option('display.max_rows', procData.shape[0]+1)
 
 diff_data = procData.loc[ :,"diff_AVAR2":"diff_totalVar" ]
-
+diff_data.to_csv("./diffData.csv")
 
 diff_data.describe()
 
@@ -129,59 +131,6 @@ diff_data.skew()
 diff_data.kurtosis().tolist()
 
 diff_data.kurtosis()
-
-
-
-## QQ Data for LPS
-
-
-
-### summary Statistics 
-
-#### Baseline - summary stats - summary stats
-
-baseline_summary = data_control.loc[:,'AWT2':'total2']
-
-baseline_summary.describe()
-
-#### Variance & STD DEv
-
-baseline_summary.var()
-
-baseline_summary.std()
-
-#### skew
-
-scipy.stats.skew(baseline_summary).tolist()
-
-
-#### Kurtosis
-
-scipy.stats.kurtosis(baseline_summary).tolist()
-
-
-#### Intravenous LPS - summary stats
-
-LPS_summary = data_treatment.loc[:,'AWT2':'total2']
-LPS_summary.describe()
-
-#### Variance & STd DEv
-
-LPS_summary.var()
-
-
-LPS_summary.std()
-
-#### Skew
-
-
-scipy.stats.skew(LPS_summary)
-
-#### Kurtosis
-
-
-scipy.stats.kurtosis(LPS_summary)
-
 
 
 

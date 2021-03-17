@@ -54,7 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="finalResults.html" />
+    <link rel="prev" title="TOTAL2" href="arseAnal.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,6 +95,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
    Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arseAnal.html">
+   TOTAL2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arseAnal.html#a">
+   - A
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -218,60 +228,6 @@
     <a class="reference internal nav-link" href="#difference-table">
      Difference Table
     </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#qq-data-for-lps">
-   QQ Data for LPS
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     summary Statistics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#baseline-summary-stats-summary-stats">
-       Baseline - summary stats - summary stats
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variance-std-dev">
-       Variance &amp; STD DEv
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#skew">
-       skew
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#kurtosis">
-       Kurtosis
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#intravenous-lps-summary-stats">
-       Intravenous LPS - summary stats
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Variance &amp; STd DEv
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Skew
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Kurtosis
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -422,7 +378,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_control</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;baseline&quot;</span><span class="p">]</span>
+<span class="n">data_control</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./control.csv&quot;</span><span class="p">)</span>
 <span class="n">data_treatment</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;intravenous LPS&quot;</span><span class="p">]</span>
+<span class="n">data_control</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./lps.csv&quot;</span><span class="p">)</span>
+
 <span class="n">procData</span> <span class="o">=</span> <span class="n">data_treatment</span>
 
 
@@ -446,51 +405,53 @@
     <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalVar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">procData</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./procData.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-261-74879bfe7cdc&gt;:6: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-f984afccbdb6&gt;:9: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:8: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:11: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:10: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:13: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:12: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:15: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:16: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:19: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:18: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:21: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:20: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:23: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:22: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:25: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-&lt;ipython-input-261-74879bfe7cdc&gt;:24: SettingWithCopyWarning: 
+&lt;ipython-input-3-f984afccbdb6&gt;:27: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -740,6 +701,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="n">procData</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">diff_data</span> <span class="o">=</span> <span class="n">procData</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">:,</span><span class="s2">&quot;diff_AVAR2&quot;</span><span class="p">:</span><span class="s2">&quot;diff_totalVar&quot;</span> <span class="p">]</span>
+<span class="n">diff_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./diffData.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -987,365 +949,6 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class="section" id="qq-data-for-lps">
-<h2>QQ Data for LPS<a class="headerlink" href="#qq-data-for-lps" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="summary-statistics">
-<h3>summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="baseline-summary-stats-summary-stats">
-<h4>Baseline - summary stats - summary stats<a class="headerlink" href="#baseline-summary-stats-summary-stats" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span> <span class="o">=</span> <span class="n">data_control</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;AWT2&#39;</span><span class="p">:</span><span class="s1">&#39;total2&#39;</span><span class="p">]</span>
-
-<span class="n">baseline_summary</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>AWT2</th>
-      <th>AVAR2</th>
-      <th>CWT2</th>
-      <th>CVAR2</th>
-      <th>total2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.00000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1.392667</td>
-      <td>2.772000</td>
-      <td>0.015333</td>
-      <td>0.070000</td>
-      <td>4.25000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.754938</td>
-      <td>4.442345</td>
-      <td>0.025317</td>
-      <td>0.138358</td>
-      <td>4.01305</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.54000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.105000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.10500</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.970000</td>
-      <td>0.190000</td>
-      <td>0.000000</td>
-      <td>0.020000</td>
-      <td>2.99000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>1.560000</td>
-      <td>3.595000</td>
-      <td>0.020000</td>
-      <td>0.075000</td>
-      <td>5.84500</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>6.480000</td>
-      <td>12.310000</td>
-      <td>0.090000</td>
-      <td>0.540000</td>
-      <td>12.85000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="variance-std-dev">
-<h4>Variance &amp; STD DEv<a class="headerlink" href="#variance-std-dev" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2       3.079807
-AVAR2     19.734431
-CWT2       0.000641
-CVAR2      0.019143
-total2    16.104571
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2      1.754938
-AVAR2     4.442345
-CWT2      0.025317
-CVAR2     0.138358
-total2    4.013050
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="skew">
-<h4>skew<a class="headerlink" href="#skew" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">baseline_summary</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.7972433220325235,
- 1.3837254728073076,
- 1.887008077175262,
- 2.842510792681786,
- 1.1172243604148848]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="kurtosis">
-<h4>Kurtosis<a class="headerlink" href="#kurtosis" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">baseline_summary</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.75752748154149,
- 0.35092024370846486,
- 3.0210330979027598,
- 7.236781577188676,
- 0.07325166351934786]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="intravenous-lps-summary-stats">
-<h4>Intravenous LPS - summary stats<a class="headerlink" href="#intravenous-lps-summary-stats" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span> <span class="o">=</span> <span class="n">data_treatment</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;AWT2&#39;</span><span class="p">:</span><span class="s1">&#39;total2&#39;</span><span class="p">]</span>
-<span class="n">LPS_summary</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>AWT2</th>
-      <th>AVAR2</th>
-      <th>CWT2</th>
-      <th>CVAR2</th>
-      <th>total2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-      <td>15.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>0.762000</td>
-      <td>2.076667</td>
-      <td>0.035333</td>
-      <td>0.026667</td>
-      <td>2.900667</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.088631</td>
-      <td>3.780445</td>
-      <td>0.077355</td>
-      <td>0.048354</td>
-      <td>3.529809</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.230000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.105000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.525000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.280000</td>
-      <td>0.190000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.830000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.730000</td>
-      <td>1.955000</td>
-      <td>0.030000</td>
-      <td>0.030000</td>
-      <td>3.345000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>3.510000</td>
-      <td>12.950000</td>
-      <td>0.300000</td>
-      <td>0.150000</td>
-      <td>12.950000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="id1">
-<h4>Variance &amp; STd DEv<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2       1.185117
-AVAR2     14.291767
-CWT2       0.005984
-CVAR2      0.002338
-total2    12.459550
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2      1.088631
-AVAR2     3.780445
-CWT2      0.077355
-CVAR2     0.048354
-total2    3.529809
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id2">
-<h4>Skew<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">LPS_summary</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.63336448, 1.98898714, 2.92934754, 1.83955534, 1.82536955])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id3">
-<h4>Kurtosis<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">LPS_summary</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.30399526, 2.82979876, 7.53370866, 1.89996101, 2.57492186])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="graph-data">
 <h2>Graph Data -<a class="headerlink" href="#graph-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -1356,8 +959,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_43_0.png" src="_images/treatment_43_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326787654)&gt;
+<img alt="_images/treatment_22_0.png" src="_images/treatment_22_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326122765)&gt;
 </pre></div>
 </div>
 </div>
@@ -1386,8 +989,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_45_0.png" src="_images/treatment_45_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326796355)&gt;
+<img alt="_images/treatment_24_0.png" src="_images/treatment_24_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326124126)&gt;
 </pre></div>
 </div>
 </div>
@@ -1417,8 +1020,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_47_0.png" src="_images/treatment_47_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326905546)&gt;
+<img alt="_images/treatment_26_0.png" src="_images/treatment_26_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (283171889)&gt;
 </pre></div>
 </div>
 </div>
@@ -1448,8 +1051,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_49_0.png" src="_images/treatment_49_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326815525)&gt;
+<img alt="_images/treatment_28_0.png" src="_images/treatment_28_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326307729)&gt;
 </pre></div>
 </div>
 </div>
@@ -1482,11 +1085,11 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/layer.py:372: PlotnineWarning: stat_boxplot : Removed 4 rows containing non-finite values.
-/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_jitter : Removed 6 rows containing missing values.
+/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.
 </pre></div>
 </div>
-<img alt="_images/treatment_51_1.png" src="_images/treatment_51_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325457589)&gt;
+<img alt="_images/treatment_30_1.png" src="_images/treatment_30_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326336124)&gt;
 </pre></div>
 </div>
 </div>
@@ -1518,8 +1121,8 @@ dtype: float64
 /usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_point : Removed 2 rows containing missing values.
 </pre></div>
 </div>
-<img alt="_images/treatment_53_1.png" src="_images/treatment_53_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (327150815)&gt;
+<img alt="_images/treatment_32_1.png" src="_images/treatment_32_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326371473)&gt;
 </pre></div>
 </div>
 </div>
@@ -1561,7 +1164,7 @@ Name: total2, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-294-e65ed6e0bbb2&gt;:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-26-e65ed6e0bbb2&gt;:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -2001,8 +1604,8 @@ slope: [0.95817383]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_57_0.png" src="_images/treatment_57_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (327016367)&gt;
+<img alt="_images/treatment_36_0.png" src="_images/treatment_36_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326306199)&gt;
 </pre></div>
 </div>
 </div>
@@ -2061,8 +1664,8 @@ slope: [0.95817383]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_62_0.png" src="_images/treatment_62_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325300514)&gt;
+<img alt="_images/treatment_41_0.png" src="_images/treatment_41_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326432964)&gt;
 </pre></div>
 </div>
 </div>
@@ -2092,8 +1695,8 @@ slope: [0.95817383]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_64_0.png" src="_images/treatment_64_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325207637)&gt;
+<img alt="_images/treatment_43_0.png" src="_images/treatment_43_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326405813)&gt;
 </pre></div>
 </div>
 </div>
@@ -2122,8 +1725,8 @@ slope: [0.95817383]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_66_0.png" src="_images/treatment_66_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326512942)&gt;
+<img alt="_images/treatment_45_0.png" src="_images/treatment_45_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326426492)&gt;
 </pre></div>
 </div>
 </div>
@@ -2149,8 +1752,8 @@ slope: [0.95817383]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_68_0.png" src="_images/treatment_68_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325254985)&gt;
+<img alt="_images/treatment_47_0.png" src="_images/treatment_47_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326405744)&gt;
 </pre></div>
 </div>
 </div>
@@ -2430,8 +2033,8 @@ we reject the Null Hypothesis.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
 </pre></div>
 </div>
-<img alt="_images/treatment_83_1.png" src="_images/treatment_83_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325125301)&gt;
+<img alt="_images/treatment_62_1.png" src="_images/treatment_62_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326433000)&gt;
 </pre></div>
 </div>
 </div>
@@ -2446,8 +2049,8 @@ we reject the Null Hypothesis.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
 </pre></div>
 </div>
-<img alt="_images/treatment_84_1.png" src="_images/treatment_84_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325091383)&gt;
+<img alt="_images/treatment_63_1.png" src="_images/treatment_63_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326476222)&gt;
 </pre></div>
 </div>
 </div>
@@ -2459,8 +2062,8 @@ we reject the Null Hypothesis.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/treatment_85_0.png" src="_images/treatment_85_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326888620)&gt;
+<img alt="_images/treatment_64_0.png" src="_images/treatment_64_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326466154)&gt;
 </pre></div>
 </div>
 </div>
@@ -2475,8 +2078,8 @@ we reject the Null Hypothesis.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_col : Removed 9 rows containing missing values.
 </pre></div>
 </div>
-<img alt="_images/treatment_86_1.png" src="_images/treatment_86_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325496477)&gt;
+<img alt="_images/treatment_65_1.png" src="_images/treatment_65_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326433012)&gt;
 </pre></div>
 </div>
 </div>
@@ -2490,12 +2093,12 @@ we reject the Null Hypothesis.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-319-7ecc4e451223&gt;:2: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-51-7ecc4e451223&gt;:2: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
 /usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
 </pre></div>
 </div>
-<img alt="_images/treatment_87_1.png" src="_images/treatment_87_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326888494)&gt;
+<img alt="_images/treatment_66_1.png" src="_images/treatment_66_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326476066)&gt;
 </pre></div>
 </div>
 </div>
@@ -2568,7 +2171,7 @@ we reject the Null Hypothesis.
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="finalResults.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="arseAnal.html" title="previous page">TOTAL2</a>
 
         </div>
         

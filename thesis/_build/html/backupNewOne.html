@@ -1,0 +1,2607 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics &amp; Data Analysis &#8212; Thesis</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo2.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Thesis</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introducttion
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arseAnal.html">
+   TOTAL2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arseAnal.html#a">
+   - A
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="treatment.html">
+   Statistics &amp; Data Analysis
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/backupNewOne.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/assahasranamam/thesis/primary?urlpath=tree/backupNewOne.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#req">
+   Req
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-requirements">
+     Import Requirements
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#html-formatting">
+       HTML formatting
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculating-the-differences-between-the-noremalized-values">
+   Calculating the differences between the noremalized values.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#difference-table">
+     Difference Table
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qq-data-for-lps">
+   QQ Data for LPS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-statistics">
+     summary Statistics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#baseline-summary-stats-summary-stats">
+       Baseline - summary stats - summary stats
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-std-dev">
+       Variance &amp; STD DEv
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#skew">
+       skew
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#kurtosis">
+       Kurtosis
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#intravenous-lps-summary-stats">
+       Intravenous LPS - summary stats
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Variance &amp; STd DEv
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Skew
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Kurtosis
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graph-data">
+   Graph Data -
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistics">
+   Statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-2-comparison">
+     Total 2 Comparison
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wilcoxon-non-parametric">
+       Wilcoxon non-parametric
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#freidman-s-anova">
+       Freidman’s Anova
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other">
+     other
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="statistics-data-analysis">
+<h1>Statistics &amp; Data Analysis<a class="headerlink" href="#statistics-data-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="req">
+<h2>Req<a class="headerlink" href="#req" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import-requirements">
+<h3>Import Requirements<a class="headerlink" href="#import-requirements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="html-formatting">
+<h4>HTML formatting<a class="headerlink" href="#html-formatting" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">  table.dataframe td, table.dataframe th {</span>
+<span class="s2">    max-width: none;</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">  table.dataframe td, table.dataframe th {</span>
+<span class="s2">    max-width: none;</span>
+<span class="s2">    white-space: normal;</span>
+<span class="s2">  }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">  table.dataframe td, table.dataframe th {</span>
+<span class="s2">    max-width: none;</span>
+<span class="s2">    white-space: normal;</span>
+<span class="s2">    line-height: normal;</span>
+<span class="s2">  }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">  table.dataframe td, table.dataframe th {</span>
+<span class="s2">    max-width: none;</span>
+<span class="s2">    white-space: normal;</span>
+<span class="s2">    line-height: normal;</span>
+<span class="s2">    padding: 0.3em 0.5em;</span>
+<span class="s2">  }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+  table.dataframe td, table.dataframe th {
+    max-width: none;
+    white-space: normal;
+    line-height: normal;
+    padding: 0.3em 0.5em;
+  }
+</style>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
+<span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">scikit_posthocs</span>   <span class="k">as</span> <span class="nn">sp</span>
+
+
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./NewCols.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">37188242</span><span class="n">a9bf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">scikit_posthocs</span>   <span class="k">as</span> <span class="nn">sp</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scikit_posthocs&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-the-differences-between-the-noremalized-values">
+<h2>Calculating the differences between the noremalized values.<a class="headerlink" href="#calculating-the-differences-between-the-noremalized-values" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_control</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;baseline&quot;</span><span class="p">]</span>
+<span class="n">data_treatment</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;intravenous LPS&quot;</span><span class="p">]</span>
+<span class="n">procData</span> <span class="o">=</span> <span class="n">data_treatment</span>
+
+
+<span class="n">procData</span><span class="p">[</span><span class="s1">&#39;diff_AVAR2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_CVAR2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_AWT2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">])</span> <span class="o">-</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_CWT2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">])</span> <span class="o">-</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_total2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalC&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalWT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalWT&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">procData</span><span class="p">[</span><span class="s2">&quot;diff_totalVar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalVar&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-261-74879bfe7cdc&gt;:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:10: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:12: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:16: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:18: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:20: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:22: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+&lt;ipython-input-261-74879bfe7cdc&gt;:24: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newDF</span><span class="o">=</span>  <span class="n">data_control</span><span class="p">[[</span><span class="s2">&quot;testGroup&quot;</span><span class="p">,</span><span class="s2">&quot;tg2&quot;</span><span class="p">]]</span>
+<span class="n">newDF</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>testGroup</th>
+      <th>tg2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newDF</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;testGroup&#39;</span><span class="p">:</span><span class="s1">&#39;c_tg&#39;</span><span class="p">,</span><span class="s1">&#39;tg2&#39;</span><span class="p">:</span><span class="s1">&#39;c_tg2&#39;</span><span class="p">},</span>  <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="n">newDF</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/pandas/core/frame.py:4441: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>c_tg</th>
+      <th>c_tg2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>A-Var/C-Var</td>
+      <td>A-Var/C-Var</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>AWT</td>
+      <td>AWT</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>A-WT/C-WT</td>
+      <td>A-WT/C-WT</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>error</td>
+      <td>Error</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newDF</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">procData</span><span class="o">.</span><span class="n">index</span>
+<span class="n">procData</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">procData</span><span class="p">,</span><span class="n">newDF</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="difference-table">
+<h3>Difference Table<a class="headerlink" href="#difference-table" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="n">procData</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">diff_data</span> <span class="o">=</span> <span class="n">procData</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">:,</span><span class="s2">&quot;diff_AVAR2&quot;</span><span class="p">:</span><span class="s2">&quot;diff_totalVar&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff_AVAR2</th>
+      <th>diff_CVAR2</th>
+      <th>diff_AWT2</th>
+      <th>diff_CWT2</th>
+      <th>diff_total2</th>
+      <th>diff_totalA</th>
+      <th>diff_totalC</th>
+      <th>diff_totalWT</th>
+      <th>diff_totalVar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-0.695333</td>
+      <td>-0.043333</td>
+      <td>-0.630667</td>
+      <td>0.020000</td>
+      <td>-1.349333</td>
+      <td>-1.326000</td>
+      <td>-0.023333</td>
+      <td>-0.610667</td>
+      <td>-0.738667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.089395</td>
+      <td>0.144502</td>
+      <td>0.835357</td>
+      <td>0.084769</td>
+      <td>2.165016</td>
+      <td>2.067199</td>
+      <td>0.170992</td>
+      <td>0.762978</td>
+      <td>2.218925</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-7.700000</td>
+      <td>-0.520000</td>
+      <td>-2.970000</td>
+      <td>-0.070000</td>
+      <td>-8.220000</td>
+      <td>-7.700000</td>
+      <td>-0.520000</td>
+      <td>-2.670000</td>
+      <td>-8.220000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.290000</td>
+      <td>-0.055000</td>
+      <td>-0.840000</td>
+      <td>-0.010000</td>
+      <td>-1.660000</td>
+      <td>-1.705000</td>
+      <td>-0.080000</td>
+      <td>-0.870000</td>
+      <td>-0.270000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.410000</td>
+      <td>0.000000</td>
+      <td>-0.780000</td>
+      <td>-0.800000</td>
+      <td>0.000000</td>
+      <td>-0.430000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.020000</td>
+      <td>-0.160000</td>
+      <td>-0.170000</td>
+      <td>0.045000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.830000</td>
+      <td>0.110000</td>
+      <td>0.080000</td>
+      <td>0.300000</td>
+      <td>0.740000</td>
+      <td>0.830000</td>
+      <td>0.300000</td>
+      <td>0.010000</td>
+      <td>0.740000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diff_AVAR2       4.365570
+diff_CVAR2       0.020881
+diff_AWT2        0.697821
+diff_CWT2        0.007186
+diff_total2      4.687292
+diff_totalA      4.273311
+diff_totalC      0.029238
+diff_totalWT     0.582135
+diff_totalVar    4.923627
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diff_AVAR2       2.089395
+diff_CVAR2       0.144502
+diff_AWT2        0.835357
+diff_CWT2        0.084769
+diff_total2      2.165016
+diff_totalA      2.067199
+diff_totalC      0.170992
+diff_totalWT     0.762978
+diff_totalVar    2.218925
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diff_AVAR2      -3.111514
+diff_CVAR2      -2.816163
+diff_AWT2       -1.826353
+diff_CWT2        2.864955
+diff_total2     -2.497520
+diff_totalA     -2.274328
+diff_totalC     -1.420225
+diff_totalWT    -1.638127
+diff_totalVar   -3.165627
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10.264406796877637,
+ 9.444362749191729,
+ 3.6982075152203597,
+ 9.543320897371544,
+ 7.61247279274705,
+ 6.469933856117286,
+ 5.523875299227822,
+ 2.873242267200818,
+ 10.564445597026406]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_data</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diff_AVAR2       10.264407
+diff_CVAR2        9.444363
+diff_AWT2         3.698208
+diff_CWT2         9.543321
+diff_total2       7.612473
+diff_totalA       6.469934
+diff_totalC       5.523875
+diff_totalWT      2.873242
+diff_totalVar    10.564446
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="qq-data-for-lps">
+<h2>QQ Data for LPS<a class="headerlink" href="#qq-data-for-lps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="summary-statistics">
+<h3>summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="baseline-summary-stats-summary-stats">
+<h4>Baseline - summary stats - summary stats<a class="headerlink" href="#baseline-summary-stats-summary-stats" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span> <span class="o">=</span> <span class="n">data_control</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;AWT2&#39;</span><span class="p">:</span><span class="s1">&#39;total2&#39;</span><span class="p">]</span>
+
+<span class="n">baseline_summary</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AWT2</th>
+      <th>AVAR2</th>
+      <th>CWT2</th>
+      <th>CVAR2</th>
+      <th>total2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.392667</td>
+      <td>2.772000</td>
+      <td>0.015333</td>
+      <td>0.070000</td>
+      <td>4.25000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.754938</td>
+      <td>4.442345</td>
+      <td>0.025317</td>
+      <td>0.138358</td>
+      <td>4.01305</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.54000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.105000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.10500</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.970000</td>
+      <td>0.190000</td>
+      <td>0.000000</td>
+      <td>0.020000</td>
+      <td>2.99000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.560000</td>
+      <td>3.595000</td>
+      <td>0.020000</td>
+      <td>0.075000</td>
+      <td>5.84500</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>6.480000</td>
+      <td>12.310000</td>
+      <td>0.090000</td>
+      <td>0.540000</td>
+      <td>12.85000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="variance-std-dev">
+<h4>Variance &amp; STD DEv<a class="headerlink" href="#variance-std-dev" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2       3.079807
+AVAR2     19.734431
+CWT2       0.000641
+CVAR2      0.019143
+total2    16.104571
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_summary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2      1.754938
+AVAR2     4.442345
+CWT2      0.025317
+CVAR2     0.138358
+total2    4.013050
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="skew">
+<h4>skew<a class="headerlink" href="#skew" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">baseline_summary</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.7972433220325235,
+ 1.3837254728073076,
+ 1.887008077175262,
+ 2.842510792681786,
+ 1.1172243604148848]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kurtosis">
+<h4>Kurtosis<a class="headerlink" href="#kurtosis" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">baseline_summary</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.75752748154149,
+ 0.35092024370846486,
+ 3.0210330979027598,
+ 7.236781577188676,
+ 0.07325166351934786]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intravenous-lps-summary-stats">
+<h4>Intravenous LPS - summary stats<a class="headerlink" href="#intravenous-lps-summary-stats" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span> <span class="o">=</span> <span class="n">data_treatment</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;AWT2&#39;</span><span class="p">:</span><span class="s1">&#39;total2&#39;</span><span class="p">]</span>
+<span class="n">LPS_summary</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AWT2</th>
+      <th>AVAR2</th>
+      <th>CWT2</th>
+      <th>CVAR2</th>
+      <th>total2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.762000</td>
+      <td>2.076667</td>
+      <td>0.035333</td>
+      <td>0.026667</td>
+      <td>2.900667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.088631</td>
+      <td>3.780445</td>
+      <td>0.077355</td>
+      <td>0.048354</td>
+      <td>3.529809</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.230000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.105000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.525000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.280000</td>
+      <td>0.190000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.830000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.730000</td>
+      <td>1.955000</td>
+      <td>0.030000</td>
+      <td>0.030000</td>
+      <td>3.345000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.510000</td>
+      <td>12.950000</td>
+      <td>0.300000</td>
+      <td>0.150000</td>
+      <td>12.950000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>Variance &amp; STd DEv<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2       1.185117
+AVAR2     14.291767
+CWT2       0.005984
+CVAR2      0.002338
+total2    12.459550
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LPS_summary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AWT2      1.088631
+AVAR2     3.780445
+CWT2      0.077355
+CVAR2     0.048354
+total2    3.529809
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Skew<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">LPS_summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.63336448, 1.98898714, 2.92934754, 1.83955534, 1.82536955])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Kurtosis<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">LPS_summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.30399526, 2.82979876, 7.53370866, 1.89996101, 2.57492186])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="graph-data">
+<h2>Graph Data -<a class="headerlink" href="#graph-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;AWT2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_43_0.png" src="_images/backupNewOne_43_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326787654)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=1.0, pvalue=0.0069104298078147995)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;CWT2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_45_0.png" src="_images/backupNewOne_45_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326796355)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=19.0, pvalue=0.6729404357300602)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;AVAR2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_47_0.png" src="_images/backupNewOne_47_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326905546)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=7.0, pvalue=0.23672357063785732)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;CVAR2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_49_0.png" src="_images/backupNewOne_49_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326815525)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=10.0, pvalue=0.26144605232963014)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">removed_outliers</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">data</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
+<span class="n">data_total</span><span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">removed_outliers</span><span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">data_total</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;total2&quot;</span> <span class="p">),</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">outlier_shape</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data_total</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;total2&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">)</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;QQ Plot of IRAK-1 expression per  GbP&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">&quot;Treatment&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Total IRAK-1 Levels per Gigabase pair&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylim</span><span class="p">(</span><span class="n">data_total</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">data_total</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/layer.py:372: PlotnineWarning: stat_boxplot : Removed 4 rows containing non-finite values.
+/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_jitter : Removed 6 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_51_1.png" src="_images/backupNewOne_51_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325457589)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;diff_total2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=13.0, pvalue=0.00537109375)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">removed_outliers_diffData</span> <span class="o">=</span> <span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">diff_data</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span>
+<span class="n">difftotalData</span><span class="o">=</span><span class="n">diff_data</span><span class="p">[</span><span class="n">removed_outliers_diffData</span><span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">difftotalData</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;diff_total2&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylim</span><span class="p">(</span><span class="n">difftotalData</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">),</span> <span class="n">difftotalData</span><span class="o">.</span><span class="n">diff_total2</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">))</span> <span class="o">+</span> <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;QQ Plot of changes in IRAK-1 levels per Gbp&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">&quot;Treatment&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Changes in  IRAK-1 Levels per Gigabase pair&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/layer.py:372: PlotnineWarning: stat_boxplot : Removed 2 rows containing non-finite values.
+/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_point : Removed 2 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_53_1.png" src="_images/backupNewOne_53_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (327150815)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span> <span class="o">=</span> <span class="n">data_treatment</span>
+<span class="n">controlData</span> <span class="o">=</span> <span class="n">data_control</span><span class="p">[</span><span class="s1">&#39;total2&#39;</span><span class="p">]</span>
+<span class="n">controlData</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     12.85
+1     12.21
+2      6.48
+3      7.85
+4      3.57
+5      2.99
+6      5.21
+7      3.93
+8      2.87
+9      1.20
+10     1.01
+11     0.54
+12     1.37
+13     0.99
+14     0.68
+Name: total2, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span><span class="p">[</span><span class="s2">&quot;ctrl_total2&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">controlData</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">data_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-294-e65ed6e0bbb2&gt;:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sheet #</th>
+      <th>Run</th>
+      <th>BioSample</th>
+      <th>Bases</th>
+      <th>Bytes</th>
+      <th>Experiment</th>
+      <th>GEO_Accession</th>
+      <th>inflammatory_response</th>
+      <th>race</th>
+      <th>Sample Name</th>
+      <th>...</th>
+      <th>diff_AVAR2</th>
+      <th>diff_CVAR2</th>
+      <th>diff_AWT2</th>
+      <th>diff_CWT2</th>
+      <th>diff_total2</th>
+      <th>diff_totalA</th>
+      <th>diff_totalC</th>
+      <th>diff_totalWT</th>
+      <th>diff_totalVar</th>
+      <th>ctrl_total2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>SRR4292097</td>
+      <td>SAMN05806826</td>
+      <td>56.30 G</td>
+      <td>34.32 Gb</td>
+      <td>SRX2187591</td>
+      <td>GSM2326902</td>
+      <td>1</td>
+      <td>African American</td>
+      <td>GSM2326902</td>
+      <td>...</td>
+      <td>-7.70</td>
+      <td>-0.52</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-8.22</td>
+      <td>-7.70</td>
+      <td>-0.52</td>
+      <td>0.00</td>
+      <td>-8.22</td>
+      <td>12.85</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>SRR4292098</td>
+      <td>SAMN05806825</td>
+      <td>55.41 G</td>
+      <td>33.89 Gb</td>
+      <td>SRX2187592</td>
+      <td>GSM2326903</td>
+      <td>1</td>
+      <td>Caucasian</td>
+      <td>GSM2326903</td>
+      <td>...</td>
+      <td>0.83</td>
+      <td>-0.09</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.74</td>
+      <td>0.83</td>
+      <td>-0.09</td>
+      <td>0.00</td>
+      <td>0.74</td>
+      <td>12.21</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>SRR4292099</td>
+      <td>SAMN05806824</td>
+      <td>47.95 G</td>
+      <td>29.16 Gb</td>
+      <td>SRX2187593</td>
+      <td>GSM2326904</td>
+      <td>1</td>
+      <td>Caucasian</td>
+      <td>GSM2326904</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-2.97</td>
+      <td>0.30</td>
+      <td>-2.67</td>
+      <td>-2.97</td>
+      <td>0.30</td>
+      <td>-2.67</td>
+      <td>0.00</td>
+      <td>6.48</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>SRR4292100</td>
+      <td>SAMN05806823</td>
+      <td>47.04 G</td>
+      <td>28.94 Gb</td>
+      <td>SRX2187594</td>
+      <td>GSM2326905</td>
+      <td>1</td>
+      <td>Caucasian</td>
+      <td>GSM2326905</td>
+      <td>...</td>
+      <td>0.41</td>
+      <td>0.07</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.48</td>
+      <td>0.41</td>
+      <td>0.07</td>
+      <td>0.00</td>
+      <td>0.48</td>
+      <td>7.85</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>SRR4292101</td>
+      <td>SAMN05806822</td>
+      <td>25.25 G</td>
+      <td>16.33 Gb</td>
+      <td>SRX2187595</td>
+      <td>GSM2326906</td>
+      <td>1</td>
+      <td>Caucasian</td>
+      <td>GSM2326906</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-1.83</td>
+      <td>0.09</td>
+      <td>-1.74</td>
+      <td>-1.83</td>
+      <td>0.09</td>
+      <td>-1.74</td>
+      <td>0.00</td>
+      <td>3.57</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>SRR4292102</td>
+      <td>SAMN05806821</td>
+      <td>27.70 G</td>
+      <td>17.89 Gb</td>
+      <td>SRX2187596</td>
+      <td>GSM2326907</td>
+      <td>1</td>
+      <td>African American</td>
+      <td>GSM2326907</td>
+      <td>...</td>
+      <td>-0.65</td>
+      <td>-0.02</td>
+      <td>-0.93</td>
+      <td>0.02</td>
+      <td>-1.58</td>
+      <td>-1.58</td>
+      <td>0.00</td>
+      <td>-0.91</td>
+      <td>-0.67</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>SRR4292103</td>
+      <td>SAMN05806820</td>
+      <td>17.58 G</td>
+      <td>11.40 Gb</td>
+      <td>SRX2187597</td>
+      <td>GSM2326908</td>
+      <td>-1</td>
+      <td>Caucasian</td>
+      <td>GSM2326908</td>
+      <td>...</td>
+      <td>-2.74</td>
+      <td>-0.11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-2.85</td>
+      <td>-2.74</td>
+      <td>-0.11</td>
+      <td>0.00</td>
+      <td>-2.85</td>
+      <td>5.21</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>SRR4292104</td>
+      <td>SAMN05806819</td>
+      <td>25.12 G</td>
+      <td>16.21 Gb</td>
+      <td>SRX2187598</td>
+      <td>GSM2326909</td>
+      <td>-1</td>
+      <td>Caucasian</td>
+      <td>GSM2326909</td>
+      <td>...</td>
+      <td>-0.54</td>
+      <td>0.11</td>
+      <td>-0.82</td>
+      <td>-0.02</td>
+      <td>-1.27</td>
+      <td>-1.36</td>
+      <td>0.09</td>
+      <td>-0.84</td>
+      <td>-0.43</td>
+      <td>3.93</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>SRR4292105</td>
+      <td>SAMN05806818</td>
+      <td>26.42 G</td>
+      <td>17.05 Gb</td>
+      <td>SRX2187599</td>
+      <td>GSM2326910</td>
+      <td>-1</td>
+      <td>Caucasian</td>
+      <td>GSM2326910</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>-0.07</td>
+      <td>0.01</td>
+      <td>0.08</td>
+      <td>-0.07</td>
+      <td>0.01</td>
+      <td>0.00</td>
+      <td>2.87</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>SRR4292106</td>
+      <td>SAMN05806817</td>
+      <td>9.88 G</td>
+      <td>5.85 Gb</td>
+      <td>SRX2187600</td>
+      <td>GSM2326911</td>
+      <td>1</td>
+      <td>Caucasian</td>
+      <td>GSM2326911</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>-0.11</td>
+      <td>-0.62</td>
+      <td>0.02</td>
+      <td>-0.71</td>
+      <td>-0.62</td>
+      <td>-0.09</td>
+      <td>-0.60</td>
+      <td>-0.11</td>
+      <td>1.20</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>SRR4292107</td>
+      <td>SAMN05806816</td>
+      <td>6.14 G</td>
+      <td>3.59 Gb</td>
+      <td>SRX2187601</td>
+      <td>GSM2326912</td>
+      <td>1</td>
+      <td>African American</td>
+      <td>GSM2326912</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-0.80</td>
+      <td>0.02</td>
+      <td>-0.78</td>
+      <td>-0.80</td>
+      <td>0.02</td>
+      <td>-0.78</td>
+      <td>0.00</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>SRR4292108</td>
+      <td>SAMN05806815</td>
+      <td>9.42 G</td>
+      <td>5.60 Gb</td>
+      <td>SRX2187602</td>
+      <td>GSM2326913</td>
+      <td>-1</td>
+      <td>African American</td>
+      <td>GSM2326913</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-0.30</td>
+      <td>0.00</td>
+      <td>-0.30</td>
+      <td>-0.30</td>
+      <td>0.00</td>
+      <td>-0.30</td>
+      <td>0.00</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>SRR4292109</td>
+      <td>SAMN05806814</td>
+      <td>7.90 G</td>
+      <td>4.72 Gb</td>
+      <td>SRX2187603</td>
+      <td>GSM2326914</td>
+      <td>-1</td>
+      <td>African American</td>
+      <td>GSM2326914</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-0.86</td>
+      <td>-0.04</td>
+      <td>-0.90</td>
+      <td>-0.86</td>
+      <td>-0.04</td>
+      <td>-0.90</td>
+      <td>0.00</td>
+      <td>1.37</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>SRR4292110</td>
+      <td>SAMN05806813</td>
+      <td>11.19 G</td>
+      <td>6.65 Gb</td>
+      <td>SRX2187604</td>
+      <td>GSM2326915</td>
+      <td>-1</td>
+      <td>Caucasian</td>
+      <td>GSM2326915</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-0.41</td>
+      <td>-0.02</td>
+      <td>-0.43</td>
+      <td>-0.41</td>
+      <td>-0.02</td>
+      <td>-0.43</td>
+      <td>0.00</td>
+      <td>0.99</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>SRR4292111</td>
+      <td>SAMN05806812</td>
+      <td>6.61 G</td>
+      <td>4.20 Gb</td>
+      <td>SRX2187605</td>
+      <td>GSM2326916</td>
+      <td>-1</td>
+      <td>African American</td>
+      <td>GSM2326916</td>
+      <td>...</td>
+      <td>-0.04</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-0.02</td>
+      <td>-0.04</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>-0.02</td>
+      <td>0.68</td>
+    </tr>
+  </tbody>
+</table>
+<p>15 rows × 43 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="n">r_sq</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_plot</span><span class="o">.</span><span class="n">total2</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">data_plot</span><span class="o">.</span><span class="n">ctrl_total2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefficient of determination:&#39;</span><span class="p">,</span> <span class="n">r_sq</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slope:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coefficient of determination: 0.7102999411988566
+intercept: 1.470657110816588
+slope: [0.95817383]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data_plot</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total2&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;ctrl_total2&#39;</span><span class="p">)</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_57_0.png" src="_images/backupNewOne_57_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (327016367)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapiro_test</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s1">&#39;total2&#39;</span><span class="p">])</span>
+<span class="n">shapiro_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8312229514122009, pvalue=0.009520275518298149)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapiro_test</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s1">&#39;total2&#39;</span><span class="p">])</span>
+<span class="n">shapiro_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.747516393661499, pvalue=0.0008409483707509935)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapiro_test</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s1">&#39;diff_total2&#39;</span><span class="p">])</span>
+<span class="n">shapiro_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.7386532425880432, pvalue=0.0006647059926763177)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;totalVar&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_62_0.png" src="_images/backupNewOne_62_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325300514)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;diff_totalVar&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2981: UserWarning: Sample size too small for normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=10.0, pvalue=0.2626182904425206)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;totalWT&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_64_0.png" src="_images/backupNewOne_64_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325207637)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;diff_totalWT&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=1.0, pvalue=0.0069104298078147995)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;totalA&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_66_0.png" src="_images/backupNewOne_66_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326512942)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;diff_totalA&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=14.0, pvalue=0.0067138671875)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;totalC&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;treatment&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_68_0.png" src="_images/backupNewOne_68_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325254985)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">wilcoxon</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;diff_totalC&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2967: UserWarning: Exact p-value calculation does not work if there are ties. Switching to normal approximation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=40.0, pvalue=0.7000053872020358)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="total-2-comparison">
+<h3>Total 2 Comparison<a class="headerlink" href="#total-2-comparison" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="wilcoxon-non-parametric">
+<h4>Wilcoxon non-parametric<a class="headerlink" href="#wilcoxon-non-parametric" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.0 0.00537109375
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;As P&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; is less than a: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;we reject the Null Hypothesis.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;. There is significant difference betwween the groups&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;As P&quot;</span><span class="o">+</span><span class="n">p</span><span class="o">+</span><span class="s2">&quot; is larger than a: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;we FAIL TO reject the Null Hypothesis.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;. There is NOT a significant difference betwween the groups&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>As P0.00537109375 is less than a: 0.05
+we reject the Null Hypothesis.
+. There is significant difference betwween the groups
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="freidman-s-anova">
+<h4>Freidman’s Anova<a class="headerlink" href="#freidman-s-anova" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">posthoc_nemenyi_friedman</span><span class="p">(</span><span class="n">diff_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>diff_AVAR2</th>
+      <th>diff_CVAR2</th>
+      <th>diff_AWT2</th>
+      <th>diff_CWT2</th>
+      <th>diff_total2</th>
+      <th>diff_totalA</th>
+      <th>diff_totalC</th>
+      <th>diff_totalWT</th>
+      <th>diff_totalVar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>diff_AVAR2</th>
+      <td>1.000000</td>
+      <td>0.900000</td>
+      <td>0.617954</td>
+      <td>0.900000</td>
+      <td>0.147481</td>
+      <td>0.200657</td>
+      <td>0.900000</td>
+      <td>0.658408</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>diff_CVAR2</th>
+      <td>0.900000</td>
+      <td>1.000000</td>
+      <td>0.496456</td>
+      <td>0.900000</td>
+      <td>0.088304</td>
+      <td>0.125003</td>
+      <td>0.900000</td>
+      <td>0.537046</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>diff_AWT2</th>
+      <td>0.617954</td>
+      <td>0.496456</td>
+      <td>1.000000</td>
+      <td>0.231812</td>
+      <td>0.900000</td>
+      <td>0.900000</td>
+      <td>0.408266</td>
+      <td>0.900000</td>
+      <td>0.820225</td>
+    </tr>
+    <tr>
+      <th>diff_CWT2</th>
+      <td>0.900000</td>
+      <td>0.900000</td>
+      <td>0.231812</td>
+      <td>1.000000</td>
+      <td>0.024224</td>
+      <td>0.037136</td>
+      <td>0.900000</td>
+      <td>0.265706</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>diff_total2</th>
+      <td>0.147481</td>
+      <td>0.088304</td>
+      <td>0.900000</td>
+      <td>0.024224</td>
+      <td>1.000000</td>
+      <td>0.900000</td>
+      <td>0.061258</td>
+      <td>0.900000</td>
+      <td>0.302633</td>
+    </tr>
+    <tr>
+      <th>diff_totalA</th>
+      <td>0.200657</td>
+      <td>0.125003</td>
+      <td>0.900000</td>
+      <td>0.037136</td>
+      <td>0.900000</td>
+      <td>1.000000</td>
+      <td>0.088304</td>
+      <td>0.900000</td>
+      <td>0.385873</td>
+    </tr>
+    <tr>
+      <th>diff_totalC</th>
+      <td>0.900000</td>
+      <td>0.900000</td>
+      <td>0.408266</td>
+      <td>0.900000</td>
+      <td>0.061258</td>
+      <td>0.088304</td>
+      <td>1.000000</td>
+      <td>0.453088</td>
+      <td>0.900000</td>
+    </tr>
+    <tr>
+      <th>diff_totalWT</th>
+      <td>0.658408</td>
+      <td>0.537046</td>
+      <td>0.900000</td>
+      <td>0.265706</td>
+      <td>0.900000</td>
+      <td>0.900000</td>
+      <td>0.453088</td>
+      <td>1.000000</td>
+      <td>0.860680</td>
+    </tr>
+    <tr>
+      <th>diff_totalVar</th>
+      <td>0.900000</td>
+      <td>0.900000</td>
+      <td>0.820225</td>
+      <td>0.900000</td>
+      <td>0.302633</td>
+      <td>0.385873</td>
+      <td>0.900000</td>
+      <td>0.860680</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Friedman Tes</p>
+</div>
+</div>
+<div class="section" id="other">
+<h3>other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]</span> <span class="p">),(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48.0 0.52447509765625
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/morestats.py:2956: RuntimeWarning: invalid value encountered in subtract
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">]</span> <span class="p">),(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AVAR2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CVAR2&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0 0.00335693359375
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">]</span> <span class="p">),(</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;AWT2&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;CWT2&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.0 0.05535888671875
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tg2&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_83_1.png" src="_images/backupNewOne_83_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325125301)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;mutant&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_84_1.png" src="_images/backupNewOne_84_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325091383)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;spliceVariant&quot;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;mutant&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/backupNewOne_85_0.png" src="_images/backupNewOne_85_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326888620)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_col</span><span class="p">(</span><span class="n">procData</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;spliceVariant&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;diff_totalA/diff_totalC&quot;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;mutant&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/plotnine/layer.py:467: PlotnineWarning: geom_col : Removed 9 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_86_1.png" src="_images/backupNewOne_86_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (325496477)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">diff_data</span> <span class="o">=</span> <span class="n">procData</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)]</span>
+<span class="n">ggplot</span><span class="p">()</span><span class="o">+</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">diff_data</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tg2&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-319-7ecc4e451223&gt;:2: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+/usr/local/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 3&#39;. Pick better value with &#39;binwidth&#39;.
+</pre></div>
+</div>
+<img alt="_images/backupNewOne_87_1.png" src="_images/backupNewOne_87_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (326888494)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">((</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;totalC&quot;</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">diff_data</span><span class="p">[</span><span class="s2">&quot;totalA&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 0.0009765625
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">wilcoxon</span><span class="p">(</span><span class="n">data_control</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">],</span><span class="n">data_treatment</span><span class="p">[</span><span class="s2">&quot;total2&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.0 0.00537109375
+</pre></div>
+</div>
+</div>
+</div>
+<p>2 graphs</p>
+<ol class="simple">
+<li><p>Do the Table</p></li>
+<li><p>Black and white</p></li>
+<li><p>Make sure its not sloppy</p></li>
+<li></li>
+</ol>
+<p>control, LPS &amp; Difference.</p>
+<p>correlation plot for each patient - total 2 &amp; diff_total2</p>
+<p>Look for A/C ratios</p>
+<p>ggplot(data_plot,aes(x=’total2’,y=’ctrl_total2’) )  + geom_point(colour) + geom_smooth(method=’lm’)</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ""
+        },
+        kernelOptions: {
+            kernelName: "",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = ''</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By A S Sahasranamam<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
