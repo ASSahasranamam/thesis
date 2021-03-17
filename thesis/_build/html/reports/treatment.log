@@ -17,23 +17,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sklearn.linear_model import LinearRegression
-model = LinearRegression().fit(data_plot.total2.to_numpy().reshape((-1, 1)), data_plot.ctrl_total2)
-r_sq= model.score(data_plot.total2.to_numpy().reshape((-1, 1)), data_plot.ctrl_total2)
-print('coefficient of determination:', r_sq)
-print('intercept:', model.intercept_)
-print('slope:', model.coef_)
+import numpy as np
+import pandas as pd
+import scipy
+import matplotlib.pyplot as plt
+from pandas.api.types import CategoricalDtype
+from plotnine import *
+from scipy.stats import *
+import scikit_posthocs   as sp
+
+
+
+data = pd.read_csv("./NewCols.csv")
+
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-37-842a911f4396>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mlinear_model[0m [0;32mimport[0m [0mLinearRegression[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0mmodel[0m [0;34m=[0m [0mLinearRegression[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mdata_plot[0m[0;34m.[0m[0mtotal2[0m[0;34m.[0m[0mto_numpy[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mdata_plot[0m[0;34m.[0m[0mctrl_total2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mr_sq[0m[0;34m=[0m [0mmodel[0m[0;34m.[0m[0mscore[0m[0;34m([0m[0mdata_plot[0m[0;34m.[0m[0mtotal2[0m[0;34m.[0m[0mto_numpy[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mreshape[0m[0;34m([0m[0;34m([0m[0;34m-[0m[0;36m1[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mdata_plot[0m[0;34m.[0m[0mctrl_total2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mprint[0m[0;34m([0m[0;34m'coefficient of determination:'[0m[0;34m,[0m [0mr_sq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'intercept:'[0m[0;34m,[0m [0mmodel[0m[0;34m.[0m[0mintercept_[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-2-37188242a9bf>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mplotnine[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mstats[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0;32mimport[0m [0mscikit_posthocs[0m   [0;32mas[0m [0msp[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'sklearn'
-ModuleNotFoundError: No module named 'sklearn'
+[0;31mModuleNotFoundError[0m: No module named 'scikit_posthocs'
+ModuleNotFoundError: No module named 'scikit_posthocs'
 

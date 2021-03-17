@@ -15,7 +15,6 @@ from IPython.display import HTML
 HTML("""<style type="text/css">
   table.dataframe td, table.dataframe th {
     max-width: none;
-  }
 </style>
 """)
 
@@ -56,7 +55,7 @@ import matplotlib.pyplot as plt
 from pandas.api.types import CategoricalDtype
 from plotnine import *
 from scipy.stats import *
-
+import scikit_posthocs   as sp
 
 
 
@@ -82,7 +81,7 @@ procData["diff_CWT2"] = (np.array(data_treatment["CWT2"]) -
 
 
 procData["diff_total2"] = (
-    np.array(data_control["total2"]) - np.array(data_treatment["total2"])).tolist()
+    np.array(data_treatment["total2"]) - np.array(data_control["total2"])).tolist()
 procData["diff_totalA"] = (
     np.array(data_treatment["totalA"]) - np.array(data_control["totalA"])).tolist()
 procData["diff_totalC"] = (
