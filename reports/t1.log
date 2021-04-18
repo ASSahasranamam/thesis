@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/util.py", line 85, in ensure_async
-    result = await obj
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
@@ -22,18 +11,20 @@ Traceback (most recent call last):
     return future.result()
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 841, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 696, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['import sys', '!{sys.executable} -m pip install numpy pandas scipy matplotlib plotnine scikit_posthocs sklearn pingouin openpyxl', '', 'import numpy as np', 'import pandas as pd']
-...
-['    data_treatment["CbyA"]) - np.array(data_control["CbyA"])).tolist()', '', '', 'procData', '# procData.to_csv("./procData.csv")']
--------------------
+  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+scipy.stats.mannwhitneyu(data_c-high[data_t_high["testCol"]=="Homozygous Variants"]["AVAR2"],data_t_high[data_t_high["testCol"]=="Heterozygotes"]["AVAR2"])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-17-77a7dfd20127>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mscipy[0m[0;34m.[0m[0mstats[0m[0;34m.[0m[0mmannwhitneyu[0m[0;34m([0m[0mdata_c[0m[0;34m-[0m[0mhigh[0m[0;34m[[0m[0mdata_t_high[0m[0;34m[[0m[0;34m"testCol"[0m[0;34m][0m[0;34m==[0m[0;34m"Homozygous Variants"[0m[0;34m][0m[0;34m[[0m[0;34m"AVAR2"[0m[0;34m][0m[0;34m,[0m[0mdata_t_high[0m[0;34m[[0m[0mdata_t_high[0m[0;34m[[0m[0;34m"testCol"[0m[0;34m][0m[0;34m==[0m[0;34m"Heterozygotes"[0m[0;34m][0m[0;34m[[0m[0;34m"AVAR2"[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'data_c' is not defined
+NameError: name 'data_c' is not defined
 

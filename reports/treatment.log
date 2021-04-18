@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/util.py", line 85, in ensure_async
-    result = await obj
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
@@ -22,18 +11,43 @@ Traceback (most recent call last):
     return future.result()
   File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 841, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 696, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['aData=["AWT2","CWT2","AVAR2","CVAR2"]', 'bData=["total2","totalA","totalC","totalWT","totalVar"]', 'IRAK1A =[""]', '', 'for j in bData:']
-...
-['                              ', '        xy = xy + facet_grid("~ finalGroup")', '    xy.draw()', '', '    xy.save(str(x) +"_finalGroup.png")']
--------------------
+  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+dunn = sp.posthoc_dunn(data_AA,val_col='total2',group_col='finalGroup', p_adjust="holm")
+
+heatmap_args = {'linewidths': 0.25, 'linecolor': '0.5', 'clip_on': False, 'square': True, 'cbar_ax_bbox': [0.80, 0.35, 0.04, 0.3]}
+
+print(dunn)
+sp.sign_plot(dunn, **heatmap_args)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mZeroDivisionError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-162-5717170d09eb>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdunn[0m [0;34m=[0m [0msp[0m[0;34m.[0m[0mposthoc_dunn[0m[0;34m([0m[0mdata_AA[0m[0;34m,[0m[0mval_col[0m[0;34m=[0m[0;34m'total2'[0m[0;34m,[0m[0mgroup_col[0m[0;34m=[0m[0;34m'finalGroup'[0m[0;34m,[0m [0mp_adjust[0m[0;34m=[0m[0;34m"holm"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mheatmap_args[0m [0;34m=[0m [0;34m{[0m[0;34m'linewidths'[0m[0;34m:[0m [0;36m0.25[0m[0;34m,[0m [0;34m'linecolor'[0m[0;34m:[0m [0;34m'0.5'[0m[0;34m,[0m [0;34m'clip_on'[0m[0;34m:[0m [0;32mFalse[0m[0;34m,[0m [0;34m'square'[0m[0;34m:[0m [0;32mTrue[0m[0;34m,[0m [0;34m'cbar_ax_bbox'[0m[0;34m:[0m [0;34m[[0m[0;36m0.80[0m[0;34m,[0m [0;36m0.35[0m[0;34m,[0m [0;36m0.04[0m[0;34m,[0m [0;36m0.3[0m[0;34m][0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mprint[0m[0;34m([0m[0mdunn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/scikit_posthocs/_posthocs.py[0m in [0;36mposthoc_dunn[0;34m(a, val_col, group_col, p_adjust, sort)[0m
+[1;32m    358[0m [0;34m[0m[0m
+[1;32m    359[0m     [0;32mif[0m [0mp_adjust[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 360[0;31m         [0mvs[0m[0;34m[[0m[0mtri_upper[0m[0;34m][0m [0;34m=[0m [0mmultipletests[0m[0;34m([0m[0mvs[0m[0;34m[[0m[0mtri_upper[0m[0;34m][0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mp_adjust[0m[0;34m)[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    361[0m [0;34m[0m[0m
+[1;32m    362[0m     [0mvs[0m[0;34m[[0m[0mtri_lower[0m[0;34m][0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mtranspose[0m[0;34m([0m[0mvs[0m[0;34m)[0m[0;34m[[0m[0mtri_lower[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.9/x64/lib/python3.8/site-packages/statsmodels/stats/multitest.py[0m in [0;36mmultipletests[0;34m(pvals, alpha, method, is_sorted, returnsorted)[0m
+[1;32m    145[0m [0;34m[0m[0m
+[1;32m    146[0m     [0mntests[0m [0;34m=[0m [0mlen[0m[0;34m([0m[0mpvals[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 147[0;31m     [0malphacSidak[0m [0;34m=[0m [0;36m1[0m [0;34m-[0m [0mnp[0m[0;34m.[0m[0mpower[0m[0;34m([0m[0;34m([0m[0;36m1.[0m [0;34m-[0m [0malphaf[0m[0;34m)[0m[0;34m,[0m [0;36m1.[0m[0;34m/[0m[0mntests[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    148[0m     [0malphacBonf[0m [0;34m=[0m [0malphaf[0m [0;34m/[0m [0mfloat[0m[0;34m([0m[0mntests[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    149[0m     [0;32mif[0m [0mmethod[0m[0;34m.[0m[0mlower[0m[0;34m([0m[0;34m)[0m [0;32min[0m [0;34m[[0m[0;34m'b'[0m[0;34m,[0m [0;34m'bonf'[0m[0;34m,[0m [0;34m'bonferroni'[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mZeroDivisionError[0m: float division by zero
+ZeroDivisionError: float division by zero
 
